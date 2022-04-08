@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-12">
+        <ul>
+            <li *ngFor="let object of products">
+
+                <mat-card>{{ object.name }} :: {{ object.price }}</mat-card>
+                
+            </li>
+         </ul>
+    </div> <!-- End div -->
+</div> <!-- End div -->
+
+
+<div class="row">
+    <div class="col-12">
+        <h2>Add Product</h2>
+
+        <form class="example-form">
+
+
+           <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="porduct.date" name="porduct.date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+           </div> <!-- End Form Group -->
+
+
+         
+
+
+           <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="Product Name" [(ngModel)]="porduct.name" name="porduct.name">
+            </mat-form-field>
+
+
+           
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Category</mat-label>
+
+         
+                <mat-select [(ngModel)]="porduct.category" name="porduct.category">
+                    <mat-option *ngFor="let object of porduct.options" [value]="object">
+                        {{ object }}
+                    </mat-option>
+                </mat-select>
+               
+              </mat-form-field>
+
+            </div> <!-- End Form Group -->
+
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput placeholder="Product Price" [(ngModel)]="porduct.price" name="porduct.price">
+                </mat-form-field>
+
+            </div> <!-- End Form Group -->
+
+            <div class="form-group">
+                <button mat-raised-button color="primary"  (click)="addObject($event, porduct)">Add</button>
+
+            </div>  <!-- End Form Group -->
+
+
+       
+        </form>
+
+
+
+    
+       
+
+       
+
+    </div> <!-- End div -->
+</div> <!-- End div -->
